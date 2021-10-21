@@ -1,0 +1,22 @@
+.question {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #eaeaeb;
+}
+
+.text {
+  margin-bottom: 1rem;
+}
+
+.answers {
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
+}
+
+.actions {
+  padding-bottom: 1.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feedback {}

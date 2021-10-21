@@ -1,0 +1,13 @@
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: block;
+  box-sizing: border-box;
+  width: 83.33333%;
+  max-width: 92rem;
+  padding: 0 1.5rem;
+  margin-bottom: 5rem;
+  min-height: 1px;
+}

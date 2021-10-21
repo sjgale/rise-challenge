@@ -1,0 +1,48 @@
+.optionContainer {
+  display: flex;
+  position: relative;
+}
+
+.optionContainer:hover {
+  cursor: pointer;
+  background-color: #f7f7f8;
+}
+
+.radio {
+  display: none;
+}
+
+.radio + label {
+  padding: 3rem 5rem 3rem 11rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  width: 100%;
+}
+
+.radio + label:before {
+  content: '';
+  position: absolute;
+  left: 2rem;
+  top: 3rem;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  border: 1px solid #8a8c8d;
+}
+
+.radio + label:after {
+  content: '';
+  position: absolute;
+  left: 2.7rem;
+  top: 3.7rem;
+  height: .6rem;
+  width: .6rem;
+  border-radius: 50%;
+  background: #8a8c8d;
+  transform: scale(0%) translateX(.3rem) translateY(.3rem);
+  transition: transform .3s;
+}
+
+.radio:checked + label:after {
+  transform: scale(100%) translateX(0) translateY(0);
+}
