@@ -21,3 +21,6 @@ To run the client:
 1. `cd client`
 2. `yarn install`
 3. `yarn dev` (or `yarn build && yarn start` for production mode)
+
+
+Navigate to [localhost:3000](http://localhost:3000) to view the app in action.
