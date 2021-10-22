@@ -1,8 +1,0 @@
-{
-    "devDependencies": {
-        "prettier": "2.4.1"
-    },
-    "dependencies": {
-        "whatwg-fetch": "^3.6.2"
-    }
-}
