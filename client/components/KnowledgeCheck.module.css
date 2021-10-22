@@ -41,24 +41,38 @@
     cursor: pointer;
 }
 
-.results h3,
 .results button {
     font-family: Lato, sans-serif;
+    letter-spacing: .02em;
 }
 
-.symbolContainer {
-    height: 5rem;
-    border-radius: 50%;
-    border: 2px solid silver;
+.results p {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: .3rem;
+    margin-bottom: 1.5rem;
+    max-height: 74rem;
+    line-height: 1.7;
+    font-family: Merriweather, serif;
+    font-weight: 300;
+    font-size: 1.4rem;
+    word-wrap: break-word;
+    color: #707070;
+    text-align: center;
 }
 
-.incorrectSymbol {
+.feedback {
+    background-color: #f8f8f8;
+    margin-bottom: 3rem;
+    padding-top: 3rem;
+    padding-bottom: 1.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.correctSymbol {
-}
-
-.results button img {
-    margin-top: 0.8rem;
-    width: 2.2rem;
+.results button svg {
+    margin-top: 0.5rem;
+    transform: rotate(90deg) rotateX(180deg)
 }

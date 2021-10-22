@@ -19,6 +19,7 @@ function show(element) {
 
     setTimeout(() => {
         element.classList.remove(COLLAPSING_NAME)
+        element.style.height = 'auto'
     }, 500)
 }
 

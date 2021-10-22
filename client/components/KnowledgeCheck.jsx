@@ -6,10 +6,18 @@ import styles from './KnowledgeCheck.module.css'
 import MultiChoice from './MultiChoice'
 import Collapsible from './Collapsible'
 import Icon from './Icon'
+import FeedbackIllustration from './FeedbackIllustration'
 
 export default function KnowledgeCheck({ data }) {
+    const [selection, setSelection] = useState(undefined)
     const [showResults, setShowResults] = useState(false)
 
+    function isCorrect(selection) {
+        const selectedAnswer = data.answers.find(
+            (answer) => answer.text === selection
+        )
+        return selectedAnswer?.isCorrect
+    }
     return (
         <Block>
             <div
@@ -32,6 +40,8 @@ export default function KnowledgeCheck({ data }) {
                     <MultiChoice
                         options={data.answers}
                         showResults={showResults}
+                        selection={selection}
+                        setSelection={setSelection}
                     />
                 </div>
 
@@ -49,10 +59,7 @@ export default function KnowledgeCheck({ data }) {
                 <Collapsible isCollapsed={showResults}>
                     <div className={styles.results}>
                         <div className={styles.feedback}>
-                            <div className={styles.symbolContainer}>
-                                <Icon icon="cross" />
-                            </div>
-                            <h3>Incorrect</h3>
+                            <FeedbackIllustration isCorrect={isCorrect(selection)} />
                             <p>{data.feedback}</p>
                         </div>
                         <button
@@ -60,7 +67,11 @@ export default function KnowledgeCheck({ data }) {
                             onClick={() => setShowResults(false)}
                         >
                             Take Again
-                            <img src="/133-spinner11.svg" alt="Retake Icon" />
+                            <Icon
+                                icon="spinner11"
+                                size="22px"
+                                color="#313537"
+                            />
                         </button>
                     </div>
                 </Collapsible>

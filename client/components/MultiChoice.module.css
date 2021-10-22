@@ -1,29 +1,29 @@
 .optionContainer {
-    display: flex;
+    width: 100%;
     position: relative;
 }
 
-.optionContainer:hover {
-    background-color: #f7f7f8;
-}
-
-.radio {
-    display: none;
-}
-
-.radio + label {
-    padding: 3rem 5rem 3rem 11rem;
-    font-size: 1.5rem;
-    line-height: 2rem;
+.optionSignifiers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
     width: 100%;
+    pointer-events: none;
+    z-index: 99;
 }
 
-.radio + label:hover {
-    cursor: pointer;
+.optionOutline {
+    height: 100%;
+    width: 100%;
+    border: 3px solid #747a7e;
+    transform: scaleX(0);
+    transform-origin: top left;
+    opacity: 0;
+    transition: transform 0.5s, opacity .2s;
 }
 
-.radio + label:before {
-    content: '';
+.radioIndicator {
     position: absolute;
     left: 2rem;
     top: calc(50% - 1rem);
@@ -31,29 +31,75 @@
     width: 2rem;
     border-radius: 50%;
     border: 1px solid #8a8c8d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.radio + label:after {
+.radioIndicator:after {
     content: '';
     position: absolute;
-    left: 2.7rem;
-    top: calc(50% - 0.3rem);
     height: 0.6rem;
     width: 0.6rem;
     border-radius: 50%;
     background: #8a8c8d;
     transform: scale(0%) translateX(0.3rem) translateY(0.3rem);
-    transition: transform 0.3s;
+    transform-origin: center center;
+    opacity: 1;
+    transition: transform 0.3s, opacity .5s;
 }
 
-.radio:checked + label:after {
-    transform: scale(100%) translateX(0) translateY(0);
+.radioIndicator.selectedIndicator:after {
+    transform: scale(1)
 }
 
-.showResults .optionContainer:hover {
+.radioIndicator svg {
+    transition: opacity .5s, transform .3s;
+    opacity: 0;
+    transform: scale(0);
+}
+
+.optionText {
+    display: flex;
+    position: relative;
+}
+
+.optionText:hover {
+    background-color: #f7f7f8;
+}
+
+.radio {
+    display: none;
+}
+
+.label {
+    padding: 3rem 5rem 3rem 11rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    width: 100%;
+    cursor: pointer;
+}
+
+.showResults .optionText:hover {
     background-color: transparent;
 }
 
-.showResults .radio + label:hover {
+.showResults .label:hover {
     cursor: default;
+}
+
+.showResults .optionOutline {
+    transform: scaleX(1);
+    opacity: 1;
+    transition: transform 0.5s, opacity .5s .2s;
+}
+
+.showResults .radioIndicator svg {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.showResults .radioIndicator:after {
+    opacity: 0;
+    transform: scale(0);
 }

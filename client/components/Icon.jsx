@@ -1,5 +1,5 @@
 import IcomoonReact from 'icomoon-react'
-import iconSet from '../public/fonts/IcoMoon-Free.json'
+import iconSet from '../icons-selection.json'
 
 export default function Icon({
     color = 'silver',
