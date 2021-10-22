@@ -1,6 +1,6 @@
 ### Overview
 
-The client was build using the NextJS framework, because that seemed like an interesting challenge.
+The client was built using the NextJS framework, because this seemed like a fun opportunity to become more familiar with it.
 
 Were I to keep going with this, some next steps might be:
 - Improving accessibility through labels, (including aria), and reviewing the keyboard navigation and semantic structure.
