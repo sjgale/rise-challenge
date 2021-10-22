@@ -20,7 +20,7 @@
     transform: scaleX(0);
     transform-origin: top left;
     opacity: 0;
-    transition: transform 0.5s, opacity .2s;
+    transition: transform 0.5s, opacity 0.2s;
 }
 
 .radioIndicator {
@@ -46,15 +46,15 @@
     transform: scale(0%) translateX(0.3rem) translateY(0.3rem);
     transform-origin: center center;
     opacity: 1;
-    transition: transform 0.3s, opacity .5s;
+    transition: transform 0.3s, opacity 0.5s;
 }
 
 .radioIndicator.selectedIndicator:after {
-    transform: scale(1)
+    transform: scale(1);
 }
 
 .radioIndicator svg {
-    transition: opacity .5s, transform .3s;
+    transition: opacity 0.5s, transform 0.3s;
     opacity: 0;
     transform: scale(0);
 }
@@ -91,7 +91,7 @@
 .showResults .optionOutline {
     transform: scaleX(1);
     opacity: 1;
-    transition: transform 0.5s, opacity .5s .2s;
+    transition: transform 0.5s, opacity 0.5s 0.2s;
 }
 
 .showResults .radioIndicator svg {

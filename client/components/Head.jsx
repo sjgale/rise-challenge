@@ -28,6 +28,7 @@ export default function CustomHead() {
             />
             <meta name="msapplication-TileColor" content="#da532c" />
             <meta name="theme-color" content="#ffffff" />
+            <title>Sam's Submission</title>
         </Head>
     )
 }

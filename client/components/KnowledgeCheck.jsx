@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Block from './Block'
 import Button from './Button'
 import { P } from './Typography'
@@ -8,9 +8,14 @@ import Collapsible from './Collapsible'
 import Icon from './Icon'
 import FeedbackIllustration from './FeedbackIllustration'
 
-export default function KnowledgeCheck({ data }) {
+export default function KnowledgeCheck({ data, onStateUpdate }) {
     const [selection, setSelection] = useState(undefined)
-    const [showResults, setShowResults] = useState(false)
+    const [submitted, setSubmitted] = useState(false)
+
+    useEffect(() => {
+        setSelection(data.selection)
+        setSubmitted(data.submitted)
+    }, [])
 
     function isCorrect(selection) {
         const selectedAnswer = data.answers.find(
@@ -18,11 +23,25 @@ export default function KnowledgeCheck({ data }) {
         )
         return selectedAnswer?.isCorrect
     }
+
+    function onSelection(selection) {
+        setSelection(selection)
+        onStateUpdate(data.id, selection, submitted)
+    }
+
+    function onSubmit(submitted) {
+        setSubmitted(submitted)
+        if (!submitted) {
+            setSelection(undefined)
+        }
+        onStateUpdate(data.id, submitted ? selection : undefined, submitted)
+    }
+
     return (
         <Block>
             <div
                 className={`${styles.knowledgeCheck} ${
-                    showResults ? styles.showResults : undefined
+                    submitted ? styles.showResults : undefined
                 }`}
             >
                 <div className={styles.question}>
@@ -39,33 +58,32 @@ export default function KnowledgeCheck({ data }) {
                 <div className={styles.answers}>
                     <MultiChoice
                         options={data.answers}
-                        showResults={showResults}
+                        showResults={submitted}
                         selection={selection}
-                        setSelection={setSelection}
+                        setSelection={onSelection}
                     />
                 </div>
 
-                <Collapsible isCollapsed={!showResults}>
+                <Collapsible isCollapsed={!submitted}>
                     <div className={styles.actions}>
                         <Button
-                            disabled={false}
-                            onClick={() => setShowResults(true)}
+                            disabled={!selection}
+                            onClick={() => onSubmit(true)}
                         >
                             Submit
                         </Button>
                     </div>
                 </Collapsible>
 
-                <Collapsible isCollapsed={showResults}>
+                <Collapsible isCollapsed={submitted}>
                     <div className={styles.results}>
                         <div className={styles.feedback}>
-                            <FeedbackIllustration isCorrect={isCorrect(selection)} />
+                            <FeedbackIllustration
+                                isCorrect={isCorrect(selection)}
+                            />
                             <p>{data.feedback}</p>
                         </div>
-                        <button
-                            type="button"
-                            onClick={() => setShowResults(false)}
-                        >
+                        <button type="button" onClick={() => onSubmit(false)}>
                             Take Again
                             <Icon
                                 icon="spinner11"

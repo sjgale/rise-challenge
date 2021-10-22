@@ -43,13 +43,13 @@
 
 .results button {
     font-family: Lato, sans-serif;
-    letter-spacing: .02em;
+    letter-spacing: 0.02em;
 }
 
 .results p {
     padding-left: 1rem;
     padding-right: 1rem;
-    padding-top: .3rem;
+    padding-top: 0.3rem;
     margin-bottom: 1.5rem;
     max-height: 74rem;
     line-height: 1.7;
@@ -74,5 +74,5 @@
 
 .results button svg {
     margin-top: 0.5rem;
-    transform: rotate(90deg) rotateX(180deg)
+    transform: rotate(90deg) rotateX(180deg);
 }

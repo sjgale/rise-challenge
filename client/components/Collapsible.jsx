@@ -10,7 +10,6 @@ export default function CollapsibleContainer({ isCollapsed, children }) {
     })
 
     useEffect(() => {
-        console.log(collapsibleNode)
         if (!collapsibleNode) {
             return
         }
