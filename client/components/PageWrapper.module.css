@@ -1,8 +1,14 @@
 .pageWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-  max-width: 104em;
-  margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    max-width: 104em;
+    margin: auto;
+}
+
+@media screen and (min-width: 540px) {
+    .pageWrapper {
+        padding: 2rem;
+    }
 }

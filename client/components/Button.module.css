@@ -1,35 +1,35 @@
 .base {
-  border: none;
-  color: white;
-  border-radius: 2rem;
-  font-family: Lato, sans-serif;
-  height: 4rem;
-  padding: 0 1rem;
-  cursor: pointer;
-  width: 100%;
-  min-width: 10rem;
-  max-width: 17rem;
-  font-weight: 700;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  text-decoration: none;
-  text-align: center;
-  font-size: 1.2rem;
-  line-height: 3.4rem;
-  text-overflow: ellipsis;
-  background-color: #747a7e;
-  transition: background .3s, opacity .3s;
+    border: none;
+    color: white;
+    border-radius: 2rem;
+    font-family: Lato, sans-serif;
+    height: 4rem;
+    padding: 0 1rem;
+    cursor: pointer;
+    width: 100%;
+    min-width: 10rem;
+    max-width: 17rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 3.4rem;
+    text-overflow: ellipsis;
+    background-color: #747a7e;
+    transition: background 0.3s, opacity 0.3s;
 }
 
 .base:hover {
-  opacity: .8;
+    opacity: 0.8;
 }
 
 .base:active {
-  opacity: 1;
+    opacity: 1;
 }
 
 .disabled {
-  composes: base;
-  background: silver;
+    composes: base;
+    background: silver;
 }

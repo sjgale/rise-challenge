@@ -3,8 +3,10 @@ import '../styles/global.css'
 import '../styles/fonts.css'
 
 export default function MyApp({ Component, pageProps }) {
-  return <>
-    <Head />
-    <Component {...pageProps} />
-  </>
+    return (
+        <>
+            <Head />
+            <Component {...pageProps} />
+        </>
+    )
 }

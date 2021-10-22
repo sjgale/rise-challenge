@@ -1,22 +1,64 @@
+.knowledgeCheck {
+    padding-bottom: 1.7rem;
+}
+
 .question {
-  padding: 1.5rem 0;
-  border-bottom: 1px solid #eaeaeb;
+    padding: 0 0 1.5rem;
+    border-bottom: 1px solid #eaeaeb;
 }
 
 .text {
-  margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 .answers {
-  padding: 1rem 0;
-  margin-bottom: 1.5rem;
+    padding: 1rem 0;
+    margin-bottom: 1.5rem;
 }
 
 .actions {
-  padding-bottom: 1.7rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.feedback {}
+.results {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.results button {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.results h3,
+.results button {
+    font-family: Lato, sans-serif;
+}
+
+.symbolContainer {
+    height: 5rem;
+    border-radius: 50%;
+    border: 2px solid silver;
+}
+
+.incorrectSymbol {
+}
+
+.correctSymbol {
+}
+
+.results button img {
+    margin-top: 0.8rem;
+    width: 2.2rem;
+}

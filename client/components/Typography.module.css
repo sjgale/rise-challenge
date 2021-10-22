@@ -1,18 +1,18 @@
 .header1 {
-  font-size: 3.2rem;
-  font-weight: 400;
-  align-self: flex-start;
+    font-size: 3.2rem;
+    font-weight: 400;
+    align-self: flex-start;
 }
 
 .quote {
-  font-size: 3.2rem;
-  font-weight: 300;
-  text-align: center;
-  padding: 2.5rem;
-  line-height: 2;
+    font-size: 3.2rem;
+    font-weight: 300;
+    text-align: center;
+    padding: 2.5rem;
+    line-height: 2;
 }
 
 .paragraph {
-  font-size: 1.7rem;
-  line-height: 2;
+    font-size: 1.7rem;
+    line-height: 2;
 }

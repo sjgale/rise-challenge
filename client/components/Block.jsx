@@ -1,7 +1,5 @@
 import styles from './Block.module.css'
 
 export default function Block(props) {
-  return <div className={styles.block}>
-    {props.children}
-  </div>
+    return <div className={styles.block}>{props.children}</div>
 }
