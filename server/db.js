@@ -69,15 +69,5 @@ module.exports = {
         }
     ],
     userState: [
-        {
-            questionId: 1,
-            selection: 'Cookies and coffee',
-            submitted: true
-        },
-        {
-            questionId: 2,
-            selection: 'Getting rich.',
-            submitted: false
-        }
     ]
 }
