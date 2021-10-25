@@ -69,7 +69,14 @@
 }
 
 .radio {
-    display: none;
+    position: fixed;
+    top: -100px;
+}
+
+.inFocus .label {
+    outline: 5px auto Highlight;
+    outline: 5px auto -webkit-focus-ring-color;
+    border-radius: 2px;
 }
 
 .label {

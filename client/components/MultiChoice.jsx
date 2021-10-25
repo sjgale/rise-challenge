@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Icon from './Icon'
 import styles from './MultiChoice.module.css'
 
@@ -7,6 +8,8 @@ export default function MultiChoice({
     setSelection,
     showResults
 }) {
+    const [focusedRadio, setFocusedRadio] = useState(undefined)
+
     const onChoice = (event) => {
         if (showResults) {
             event.preventDefault()
@@ -18,7 +21,12 @@ export default function MultiChoice({
     return (
         <div className={showResults ? styles.showResults : undefined}>
             {options.map((option) => (
-                <div className={styles.optionContainer} key={option.text}>
+                <div
+                    className={`${styles.optionContainer} ${
+                        focusedRadio === option.text ? styles.inFocus : ''
+                    }`}
+                    key={option.text}
+                >
                     <div className={styles.optionSignifiers}>
                         {selection === option.text && (
                             <div className={styles.optionOutline} />
@@ -45,6 +53,8 @@ export default function MultiChoice({
                                 checked={selection === option.text}
                                 className={styles.radio}
                                 onChange={onChoice}
+                                onFocus={(e) => setFocusedRadio(e.target.value)}
+                                onBlur={() => setFocusedRadio(undefined)}
                             />
                             {option.text}
                         </label>
