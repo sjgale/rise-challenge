@@ -26,7 +26,7 @@ export default function KnowledgeCheck({ data, onStateUpdate }) {
 
     function onSelection(selection) {
         setSelection(selection)
-        onStateUpdate(data.id, selection, submitted)
+        onStateUpdate({questionId: data.id, selection, submitted: submitted})
     }
 
     function onSubmit(submitted) {
@@ -34,7 +34,7 @@ export default function KnowledgeCheck({ data, onStateUpdate }) {
         if (!submitted) {
             setSelection(undefined)
         }
-        onStateUpdate(data.id, submitted ? selection : undefined, submitted)
+        onStateUpdate({questionId: data.id, selection: submitted ? selection : undefined, submitted: submitted})
     }
 
     return (
