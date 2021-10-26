@@ -8,9 +8,7 @@ export default function MultiChoice({
     setSelection,
     showResults
 }) {
-    const [focusedRadio, setFocusedRadio] = useState(undefined)
-
-    const onChoice = (event) => {
+    function onChoice(event) {
         if (showResults) {
             event.preventDefault()
             return
@@ -22,9 +20,7 @@ export default function MultiChoice({
         <div className={showResults ? styles.showResults : undefined}>
             {options.map((option) => (
                 <div
-                    className={`${styles.optionContainer} ${
-                        focusedRadio === option.text ? styles.inFocus : ''
-                    }`}
+                    className={styles.optionContainer}
                     key={option.text}
                 >
                     <div className={styles.optionSignifiers}>
@@ -46,18 +42,14 @@ export default function MultiChoice({
                         </div>
                     </div>
                     <div className={styles.optionText}>
-                        <label className={styles.label}>
-                            <input
-                                type="radio"
-                                value={option.text}
-                                checked={selection === option.text}
-                                className={styles.radio}
-                                onChange={onChoice}
-                                onFocus={(e) => setFocusedRadio(e.target.value)}
-                                onBlur={() => setFocusedRadio(undefined)}
-                            />
-                            {option.text}
-                        </label>
+                        <input
+                            type="radio"
+                            value={option.text}
+                            checked={selection === option.text}
+                            className={styles.radio}
+                            onChange={onChoice}
+                        />
+                        <label className={styles.label}>{option.text}</label>
                     </div>
                 </div>
             ))}

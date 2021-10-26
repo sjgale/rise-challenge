@@ -73,7 +73,7 @@
     top: -100px;
 }
 
-.inFocus .label {
+.radio:focus-visible + .label {
     outline: 5px auto Highlight;
     outline: 5px auto -webkit-focus-ring-color;
     border-radius: 2px;
