@@ -1,6 +1,15 @@
 const express = require('express')
 const morgan = require('morgan')
 const db = require('./db')
+const { validate, ValidationError, Joi } = require('express-validation')
+
+const userStateValidation = {
+    body: Joi.object({
+        questionsId: Joi.number().required(),
+        selection: Joi.string().required(),
+        submitted: Joi.boolean().required()
+    })
+}
 
 function mergeKnowledgeCheckData(knowledgeCheckBlocks = [], userState = []) {
     return knowledgeCheckBlocks.map((block) => {
@@ -29,19 +38,31 @@ function server() {
         res.send(mergedData)
     })
 
-    app.post('/user-state', (req, res) => {
-        if (
-            db.userState.find(
-                (state) => state.questionId === req.body.questionId
-            )
-        ) {
-            db.userState = db.userState.map((state) =>
-                state.questionId === req.body.questionId ? req.body : state
-            )
-        } else {
-            db.userState = [...db.userState, req.body]
+    app.post(
+        '/user-state',
+        validate(userStateValidation, {}, {}),
+        (req, res) => {
+            if (
+                db.userState.find(
+                    (state) => state.questionId === req.body.questionId
+                )
+            ) {
+                db.userState = db.userState.map((state) =>
+                    state.questionId === req.body.questionId ? req.body : state
+                )
+            } else {
+                db.userState = [...db.userState, req.body]
+            }
+            res.status(200).send({})
         }
-        res.status(200).send({})
+    )
+
+    app.use(function (err, req, res, next) {
+        if (err instanceof ValidationError) {
+            return res.status(err.statusCode).json(err)
+        }
+
+        return res.status(500).json(err)
     })
 
     app.start = app.listen.bind(app, port, () =>
