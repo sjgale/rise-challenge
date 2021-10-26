@@ -6,8 +6,8 @@ const { validate, ValidationError, Joi } = require('express-validation')
 const userStateValidation = {
     body: Joi.object({
         questionId: Joi.number().required(),
-        selection: Joi.string().required(),
-        submitted: Joi.boolean().required()
+        selection: Joi.string(),
+        submitted: Joi.boolean()
     })
 }
 
