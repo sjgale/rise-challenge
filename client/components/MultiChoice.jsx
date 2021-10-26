@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Icon from './Icon'
 import styles from './MultiChoice.module.css'
 
@@ -8,21 +7,18 @@ export default function MultiChoice({
     setSelection,
     showResults
 }) {
-    function onChoice(event) {
+    function onChoice(event, value) {
         if (showResults) {
             event.preventDefault()
             return
         }
-        setSelection(event.target.value)
+        setSelection(value)
     }
 
     return (
         <div className={showResults ? styles.showResults : undefined}>
             {options.map((option) => (
-                <div
-                    className={styles.optionContainer}
-                    key={option.text}
-                >
+                <div className={styles.optionContainer} key={option.text}>
                     <div className={styles.optionSignifiers}>
                         {selection === option.text && (
                             <div className={styles.optionOutline} />
@@ -47,9 +43,14 @@ export default function MultiChoice({
                             value={option.text}
                             checked={selection === option.text}
                             className={styles.radio}
-                            onChange={onChoice}
+                            onChange={(e) => onChoice(e, e.target.value)}
                         />
-                        <label className={styles.label}>{option.text}</label>
+                        <label
+                            className={styles.label}
+                            onClick={(e) => onChoice(e, option.text)}
+                        >
+                            {option.text}
+                        </label>
                     </div>
                 </div>
             ))}
