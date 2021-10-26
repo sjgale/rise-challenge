@@ -1,3 +1,4 @@
+import 'whatwg-fetch'
 import Head from '../components/Head'
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
 import '../styles/global.css'
