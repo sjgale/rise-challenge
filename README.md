@@ -3,7 +3,7 @@
 The client was built using the NextJS framework, because this seemed like a fun opportunity to become more familiar with it.
 
 Were I to keep going with this, some next steps might be:
-- Improving accessibility through labels, (including aria), and reviewing the keyboard navigation and semantic structure.
+- Improving accessibility through labels, (including aria).
 - A couple components could use some additional refactoring as they were getting large.
 - Tie the UI persistence to a user ID.
 - Adding some UI or end-to-end tests.
